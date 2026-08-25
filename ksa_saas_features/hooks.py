@@ -11,3 +11,12 @@ doctype_js = {
     "Employee": "public/js/employee_custom.js",
     "Payroll Entry": "public/js/payroll_entry_custom.js"
 }
+
+scheduler_events = {
+    "daily": [
+        "ksa_saas_features.tasks.daily_compliance_check"
+    ],
+    "monthly": [
+        "ksa_saas_features.tasks.monthly_quota_reset"
+    ]
+}
