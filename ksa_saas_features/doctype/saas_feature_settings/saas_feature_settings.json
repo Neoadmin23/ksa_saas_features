@@ -1,0 +1,86 @@
+{
+  "actions": [],
+  "allow_rename": 0,
+  "creation": "2026-08-25 10:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "saas_portal_features_section",
+    "enable_muqeem",
+    "enable_mudad",
+    "enable_gosi",
+    "column_break_limits",
+    "subscription_expiry",
+    "api_quota",
+    "consumed_api_calls"
+  ],
+  "fields": [
+    {
+      "fieldname": "saas_portal_features_section",
+      "fieldtype": "Section Break",
+      "label": "Government Portal Subscriptions"
+    },
+    {
+      "default": "0",
+      "fieldname": "enable_muqeem",
+      "fieldtype": "Check",
+      "label": "Enable Muqeem Integration"
+    },
+    {
+      "default": "0",
+      "fieldname": "enable_mudad",
+      "fieldtype": "Check",
+      "label": "Enable Mudad (WPS) Integration"
+    },
+    {
+      "default": "0",
+      "fieldname": "enable_gosi",
+      "fieldtype": "Check",
+      "label": "Enable GOSI Integration"
+    },
+    {
+      "fieldname": "column_break_limits",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "subscription_expiry",
+      "fieldtype": "Date",
+      "label": "Subscription Expiry Date"
+    },
+    {
+      "default": "100",
+      "fieldname": "api_quota",
+      "fieldtype": "Int",
+      "label": "Monthly API Quota"
+    },
+    {
+      "default": "0",
+      "fieldname": "consumed_api_calls",
+      "fieldtype": "Int",
+      "label": "Consumed Calls This Month",
+      "read_only": 1
+    }
+  ],
+  "issingle": 1,
+  "modified": "2026-08-25 10:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Ksa Saas Features",
+  "name": "SaaS Feature Settings",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "print": 1,
+      "read": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": [],
+  "track_changes": 1
+}

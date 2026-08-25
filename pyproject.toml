@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ksa_saas_features"
+version = "0.0.1"
+description = "SaaS Feature Gating for KSA HR Portals"
+readme = "README.md"
+dependencies = [
+    "requests"
+]
