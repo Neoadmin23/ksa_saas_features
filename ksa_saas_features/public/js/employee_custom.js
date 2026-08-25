@@ -3,11 +3,20 @@ frappe.ui.form.on('Employee', {
         if (frm.is_new()) return;
 
         const saas = frappe.boot.saas_features || {};
-        const has_id = frm.doc.custom_national_id || frm.doc.iqama_number || frm.doc.passport_number;
 
         // 1. Elm Muqeem Button
-        if (saas.muqeem && has_id) {
+        if (saas.muqeem) {
             frm.add_custom_button(__('Sync Iqama Status'), function() {
+                const id_val = frm.doc.iqama_number || frm.doc.custom_national_id || frm.doc.passport_number;
+                if (!id_val) {
+                    frappe.msgprint({
+                        title: __('Missing Identity Information'),
+                        message: __('Please enter an Iqama Number or Passport Number before syncing.'),
+                        indicator: 'orange'
+                    });
+                    return;
+                }
+
                 frappe.call({
                     method: 'ksa_saas_features.api.sync_muqeem_employee',
                     args: { employee_id: frm.doc.name },
@@ -23,7 +32,7 @@ frappe.ui.form.on('Employee', {
             }, __('Government Portals'));
         }
 
-        // 2. CHI Insurance Verification Button
+        // 2. CHI Health Insurance Verification Button
         if (saas.chi) {
             frm.add_custom_button(__('Verify Health Insurance'), function() {
                 frappe.call({
