@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 with open("requirements.txt") as f:
     install_requires = f.read().strip().split("\n")
 
-from ksa_saas_features import __version__ as version
+version = "0.0.1"
 
 setup(
     name="ksa_saas_features",
