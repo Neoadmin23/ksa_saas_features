@@ -7,11 +7,11 @@ frappe.ui.form.on('Employee', {
         // 1. Elm Muqeem Button
         if (saas.muqeem) {
             frm.add_custom_button(__('Sync Iqama Status'), function() {
-                const id_val = frm.doc.iqama_number || frm.doc.custom_national_id || frm.doc.passport_number;
+                const id_val = frm.doc.iqama_national_id || frm.doc.iqama_number || frm.doc.passport_number || frm.doc.custom_national_id;
                 if (!id_val) {
                     frappe.msgprint({
                         title: __('Missing Identity Information'),
-                        message: __('Please enter an Iqama Number or Passport Number before syncing.'),
+                        message: __('Please enter a National ID / Iqama No or Passport Number before syncing.'),
                         indicator: 'orange'
                     });
                     return;
