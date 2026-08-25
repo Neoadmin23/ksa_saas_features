@@ -12,7 +12,14 @@
   "column_break_limits",
   "subscription_expiry",
   "api_quota",
-  "consumed_api_calls"
+  "consumed_api_calls",
+  "muqeem_credentials_section",
+  "muqeem_environment",
+  "muqeem_client_id",
+  "muqeem_establishment_id",
+  "column_break_muqeem",
+  "muqeem_client_secret",
+  "muqeem_api_key"
  ],
  "fields": [
   {
@@ -59,10 +66,47 @@
    "fieldtype": "Int",
    "label": "Consumed Calls This Month",
    "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.enable_muqeem==1",
+   "fieldname": "muqeem_credentials_section",
+   "fieldtype": "Section Break",
+   "label": "Elm Muqeem API Configuration"
+  },
+  {
+   "default": "Sandbox",
+   "fieldname": "muqeem_environment",
+   "fieldtype": "Select",
+   "label": "Environment",
+   "options": "Sandbox\nProduction"
+  },
+  {
+   "fieldname": "muqeem_client_id",
+   "fieldtype": "Data",
+   "label": "Client ID"
+  },
+  {
+   "fieldname": "muqeem_establishment_id",
+   "fieldtype": "Data",
+   "label": "Establishment (700) Number"
+  },
+  {
+   "fieldname": "column_break_muqeem",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "muqeem_client_secret",
+   "fieldtype": "Password",
+   "label": "Client Secret"
+  },
+  {
+   "fieldname": "muqeem_api_key",
+   "fieldtype": "Password",
+   "label": "API Key / Subscription Key"
   }
  ],
  "issingle": 1,
- "modified": "2026-08-25 10:00:00.000000",
+ "modified": "2026-08-25 12:00:00.000000",
  "modified_by": "Administrator",
  "module": "Ksa Saas Features",
  "name": "SaaS Feature Settings",
