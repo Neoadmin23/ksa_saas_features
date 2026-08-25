@@ -9,6 +9,8 @@
   "enable_muqeem",
   "enable_mudad",
   "enable_gosi",
+  "enable_qiwa",
+  "enable_chi",
   "column_break_limits",
   "subscription_expiry",
   "api_quota",
@@ -19,7 +21,30 @@
   "muqeem_establishment_id",
   "column_break_muqeem",
   "muqeem_client_secret",
-  "muqeem_api_key"
+  "muqeem_api_key",
+  "mudad_wps_section",
+  "mudad_establishment_id",
+  "mudad_bank_code",
+  "column_break_mudad",
+  "mudad_employer_iban",
+  "mudad_api_key",
+  "gosi_section",
+  "gosi_establishment_id",
+  "gosi_username",
+  "column_break_gosi",
+  "gosi_auth_token",
+  "gosi_auto_sync",
+  "qiwa_section",
+  "qiwa_establishment_id",
+  "qiwa_auto_sync_contracts",
+  "column_break_qiwa",
+  "qiwa_api_token",
+  "chi_insurance_section",
+  "chi_policy_number",
+  "chi_sponsor_id",
+  "column_break_chi",
+  "chi_api_key",
+  "chi_auto_verify"
  ],
  "fields": [
   {
@@ -44,6 +69,18 @@
    "fieldname": "enable_gosi",
    "fieldtype": "Check",
    "label": "Enable GOSI Integration"
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_qiwa",
+   "fieldtype": "Check",
+   "label": "Enable Qiwa Integration"
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_chi",
+   "fieldtype": "Check",
+   "label": "Enable CHI (Insurance) Integration"
   },
   {
    "fieldname": "column_break_limits",
@@ -103,10 +140,128 @@
    "fieldname": "muqeem_api_key",
    "fieldtype": "Password",
    "label": "API Key / Subscription Key"
+  },
+  {
+   "depends_on": "eval:doc.enable_mudad==1",
+   "fieldname": "mudad_wps_section",
+   "fieldtype": "Section Break",
+   "label": "Mudad / WPS Wage Protection Configuration"
+  },
+  {
+   "fieldname": "mudad_establishment_id",
+   "fieldtype": "Data",
+   "label": "Mudad Establishment ID (700 No.)"
+  },
+  {
+   "fieldname": "mudad_bank_code",
+   "fieldtype": "Data",
+   "label": "Corporate SAMA Bank Code (e.g., NCBK, RJHI)"
+  },
+  {
+   "fieldname": "column_break_mudad",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mudad_employer_iban",
+   "fieldtype": "Data",
+   "label": "Employer Payroll IBAN"
+  },
+  {
+   "fieldname": "mudad_api_key",
+   "fieldtype": "Password",
+   "label": "Mudad Direct API Key (Optional)"
+  },
+  {
+   "depends_on": "eval:doc.enable_gosi==1",
+   "fieldname": "gosi_section",
+   "fieldtype": "Section Break",
+   "label": "GOSI Insurance Integration"
+  },
+  {
+   "fieldname": "gosi_establishment_id",
+   "fieldtype": "Data",
+   "label": "GOSI Establishment Code"
+  },
+  {
+   "fieldname": "gosi_username",
+   "fieldtype": "Data",
+   "label": "GOSI Business Portal User"
+  },
+  {
+   "fieldname": "column_break_gosi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "gosi_auth_token",
+   "fieldtype": "Password",
+   "label": "GOSI Authorization Token"
+  },
+  {
+   "default": "0",
+   "fieldname": "gosi_auto_sync",
+   "fieldtype": "Check",
+   "label": "Auto-sync Monthly Contribution File"
+  },
+  {
+   "depends_on": "eval:doc.enable_qiwa==1",
+   "fieldname": "qiwa_section",
+   "fieldtype": "Section Break",
+   "label": "Qiwa Labor Contract Integration"
+  },
+  {
+   "fieldname": "qiwa_establishment_id",
+   "fieldtype": "Data",
+   "label": "Qiwa Organization ID"
+  },
+  {
+   "default": "0",
+   "fieldname": "qiwa_auto_sync_contracts",
+   "fieldtype": "Check",
+   "label": "Auto-verify Digital Contracts"
+  },
+  {
+   "fieldname": "column_break_qiwa",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "qiwa_api_token",
+   "fieldtype": "Password",
+   "label": "Qiwa Gateway Token"
+  },
+  {
+   "depends_on": "eval:doc.enable_chi==1",
+   "fieldname": "chi_insurance_section",
+   "fieldtype": "Section Break",
+   "label": "Council of Health Insurance (CHI / CCHI)"
+  },
+  {
+   "fieldname": "chi_policy_number",
+   "fieldtype": "Data",
+   "label": "Corporate Insurance Policy Number"
+  },
+  {
+   "fieldname": "chi_sponsor_id",
+   "fieldtype": "Data",
+   "label": "Sponsor ID (700 Number)"
+  },
+  {
+   "fieldname": "column_break_chi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "chi_api_key",
+   "fieldtype": "Password",
+   "label": "CHI Portal API Key"
+  },
+  {
+   "default": "1",
+   "fieldname": "chi_auto_verify",
+   "fieldtype": "Check",
+   "label": "Auto-check Medical Insurance Before Iqama Renewal"
   }
  ],
  "issingle": 1,
- "modified": "2026-08-25 12:00:00.000000",
+ "modified": "2026-08-25 15:00:00.000000",
  "modified_by": "Administrator",
  "module": "Ksa Saas Features",
  "name": "SaaS Feature Settings",
